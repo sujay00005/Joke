@@ -1,0 +1,90 @@
+h1,
+h2,
+h5,
+p {
+    color: white;
+}
+
+.box {
+    max-width: 500px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
+}
+
+.padded-box {
+    padding: 2% 2%;
+}
+
+.jokes {
+    margin-left: 30px;
+}
+
+/* .btn span.icon {
+    float: left;
+    width: 10px;
+    height: 20px;
+} */
+
+/* .dlt-btn {
+    background: url(public/delete.png) no-repeat;
+}
+
+.edit-btn {
+    background: url(public/edit.png) no-repeat;
+} */
+
+#center {
+    text-align: center;
+}
+
+.same-line {
+    display: inline-block;
+}
+
+#heading {
+    background-color: rgba(8, 26, 113, 1);
+    text-align: center;
+}
+
+.grad {
+    background-image: linear-gradient(to right, rgba(45, 58, 152, 1), rgb(10, 156, 161));
+}
+
+.footer {
+    /* position: absolute; */
+    text-align: center;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(8, 26, 113, 1);
+}
+
+.contact {
+    background-color: rgb(163, 172, 216);
+}
+
+.popup {
+    visibility: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.1);
+    border-radius: 6px;
+    max-width: 500px;
+    background: #fff;
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    min-height: 80%;
+    min-width: 80%;
+    top: 55%;
+    transform: translate(-50%, -50%) scale(1.0);
+    background-color: rgba(0, 0, 0, 0.7);
+}

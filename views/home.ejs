@@ -1,0 +1,83 @@
+<%- include("partials/header"); -%>
+
+    <div class="box" id="heading">
+        <h1>
+            <%- jokeType %>
+        </h1>
+    </div>
+
+    <div class="box padded-box" id="center">
+        <form action="/" method="post">
+            <input class="form-control" type="text" name="jokeName" placeholder="Title of joke" autocomplete="off">
+            <br>
+            <textarea class="form-control" name="jokeContent" placeholder="Joke" cols="50" rows="3"></textarea>
+            <br>
+            <button class="btn btn-lg btn-primary" type="submit" name="jokeButton" value="<%= jokeType %>">Save
+                Joke</button>
+        </form>
+    </div>
+
+    <div class="jokes">
+        <% jokes.forEach(function(joke){ %>
+
+            <div class="same-line">
+                <h5>
+                    <%= joke.title %>
+                </h5>
+
+                <div>
+                    <form action="/delete" method="post">
+                        <button class="btn btn-sm btn-primary same-line dlt-btn" type="submit" value="<%= joke._id%>"
+                            name="jokeDelete">Delete</button>
+                        <input type="hidden" name="listName" value="<%= jokeType%>"></input>
+                    </form>
+                </div>
+
+                <button class="btn btn-sm btn-primary  same-line edit-btn" onclick="openPopup()"
+                    type="button">Edit</button>
+
+                <div class="popup" id="popup">
+                    <br>
+                    <br>
+                    <br>
+                    <h2>Edit Joke "<%=joke.title%>"</h2>
+                    <div class="box padded-box" id="center">
+                        <form action="/edit" method="post">
+                            <input class="form-control" type="text" name="editedJokeName" placeholder="Title of joke"
+                                autocomplete="off" value="<%=joke.title %>">
+                            <br>
+                            <textarea class="form-control" name="editedJokeContent" placeholder="Joke" cols="50"
+                                rows="3"><%= joke.content %></textarea>
+                            <!-- The above is the way of showing the default content of text-area -->
+                            <br>
+                            <button class="btn btn-lg btn-primary" onclick="closePopup()" type="submit" name="jokeEdit"
+                                value="<%= joke._id %>">Edit Joke</button>
+                            <input type="hidden" name="listName" value="<%= jokeType%>"></input>
+                        </form>
+                    </div>
+                </div>
+
+                </form>
+            </div>
+
+            <p>
+                <%= joke.content %>
+            </p>
+            <br>
+
+            <% }) %>
+    </div>
+
+    <script>
+        let popup = document.getElementById("popup");
+
+        function openPopup() {
+            popup.classList.add("open-popup");
+        }
+
+        function closePopup() {
+            popup.classList.remove("open-popup");
+        }
+    </script>
+
+    <%- include("partials/footer"); -%>
