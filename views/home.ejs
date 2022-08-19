@@ -20,21 +20,29 @@
     <div class="jokes">
         <% jokes.forEach(function(joke){ %>
 
-            <div class="same-line">
-                <h5>
-                    <%= joke.title %>
-                </h5>
-
-                <div>
-                    <form action="/delete" method="post">
-                        <button class="btn btn-sm btn-primary same-line dlt-btn" type="submit" value="<%= joke._id%>"
-                            name="jokeDelete">Delete</button>
-                        <input type="hidden" name="listName" value="<%= jokeType%>"></input>
-                    </form>
+            <div class="parent">
+                <div class="child">
+                    <h5 class="inner-child">
+                        <%= joke.title %>
+                    </h5>
                 </div>
 
-                <button class="btn btn-sm btn-primary  same-line edit-btn" onclick="openPopup()"
-                    type="button">Edit</button>
+                <div class="child">
+                    <div class="inner-child">
+                        <form action="/delete" method="post">
+                            <button class="btn btn-sm btn-outline-danger same-line dlt-btn" type="submit"
+                                value="<%= joke._id%>" name="jokeDelete">Delete</button>
+                            <input type="hidden" name="listName" value="<%= jokeType%>"></input>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="child">
+                    <div class="inner-child">
+                        <button class="btn btn-sm btn-outline-success same-line edit-btn" onclick="openPopup()"
+                            type="button">Edit</button>
+                    </div>
+                </div>
 
                 <div class="popup" id="popup">
                     <br>
